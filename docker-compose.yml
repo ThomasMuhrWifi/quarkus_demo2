@@ -13,6 +13,8 @@ services:
       - "8080:8080"  # the HTTP endpoint
     networks:
       - quarkus 
+    depends_on:
+      - quarkus-db
 
   quarkus-db:
     image: "postgres:10.5"
