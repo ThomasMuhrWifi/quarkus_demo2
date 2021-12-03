@@ -29,6 +29,16 @@
     </dependencies>
   </dependencyManagement>
   <dependencies>
+    <!-- Hibernate ORM specific dependencies -->
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-hibernate-orm</artifactId>
+    </dependency>
+    <!-- JDBC driver dependencies -->
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-jdbc-postgresql</artifactId>
+    </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-arc</artifactId>
@@ -47,6 +57,7 @@
       <artifactId>rest-assured</artifactId>
       <scope>test</scope>
     </dependency>
+
   </dependencies>
   <build>
     <plugins>

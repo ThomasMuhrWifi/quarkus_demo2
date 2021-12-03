@@ -1,5 +1,6 @@
 package at.cgsit.train.quarkus;
 
+import at.cgsit.train.quarkus.service.DemoServiceDb;
 import at.cgsit.train.quarkus.service.DemoServiceNew;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.jboss.logging.Logger;
@@ -18,6 +19,9 @@ public class DemoResource {
     @Inject
     DemoServiceNew service;
 
+    @Inject
+    DemoServiceDb servicedb;
+
     @ConfigProperty(name = "greeting.message")
     String message;
 
@@ -31,7 +35,7 @@ public class DemoResource {
     @Path("/echo/{inputString}")
     public String greeting(@PathParam("inputString") String inputString) {
         LOG.debug("log: " + inputString);
-        return "Hello [" + service.reverseEcho(inputString ) + "]";
+        return "Hello [" + servicedb.reverseEcho(inputString ) + "]";
     }
 
     @GET
