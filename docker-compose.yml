@@ -24,11 +24,7 @@ services:
       - POSTGRES_PASSWORD=sc_admin
     volumes:
               - "./pgdata:/var/lib/postgresql/data"    
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U simplechat"]
-      interval: 15s
-      timeout: 5s
-      retries: 6
+
     ports:
       - "5432:5432"
     networks:
