@@ -1,14 +1,14 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: quarkus-db
+  name: thomas-db
   labels:
-    io.kompose.service: quarkus-db
+    io.kompose.service: thomas-db
 spec:
   replicas: 1
   selector:
     matchLabels:
-      io.kompose.service: quarkus-db
+      io.kompose.service: thomas-db
   strategy:
     type: Recreate
   template:
@@ -18,11 +18,11 @@ spec:
         kompose.version: 1.26.0 (40646f47)
       creationTimestamp: null
       labels:
-        io.kompose.network/quarkus: "true"
-        io.kompose.service: quarkus-db
+        io.kompose.network/thomas: "true"
+        io.kompose.service: thomas-db
     spec:
       containers:
-        - name: quarkus-db
+        - name: thomas-db
           image: postgres:10.5
           ports:
             - containerPort: 5432
@@ -32,12 +32,12 @@ spec:
           - name: POSTGRES_USER
             valueFrom:
               secretKeyRef:
-                name: quarkus-db-secret
+                name: thomas-db-secret
                 key: postgres-user
           - name: POSTGRES_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: quarkus-db-secret
+                name: thomas-db-secret
                 key: postgres-password
           livenessProbe:
             exec:
@@ -48,33 +48,33 @@ spec:
             timeoutSeconds: 5
           #volumeMounts:
           #  - mountPath: /var/lib/postgresql/data
-          #    name: quarkus-db-claim0
+          #    name: thomas-db-claim0
       #volumes:
-      # - name: quarkus-db-claim0
+      # - name: thomas-db-claim0
       #   persistentVolumeClaim:
-      #     claimName: quarkus-db-claim0
+      #     claimName: thomas-db-claim0
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: quarkus-db
+  name: thomas-db
   labels:
-    io.kompose.service: quarkus-db
+    io.kompose.service: thomas-db
 spec:
   ports:
     - name: "5432"
       port: 5432
       targetPort: 5432
   selector:
-    io.kompose.service: quarkus-db
+    io.kompose.service: thomas-db
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   creationTimestamp: null
   labels:
-    io.kompose.service: quarkus-db-claim0
-  name: quarkus-db-claim0
+    io.kompose.service: thomas-db-claim0
+  name: thomas-db-claim0
 spec:
   accessModes:
     - ReadWriteOnce

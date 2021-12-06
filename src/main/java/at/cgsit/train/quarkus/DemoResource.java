@@ -1,4 +1,4 @@
-package at.cgsit.train.quarkus;
+package at.cgsit.train.thomas;
 
 import at.cgsit.train.quarkus.service.DemoServiceDb;
 import at.cgsit.train.quarkus.service.DemoServiceNew;
