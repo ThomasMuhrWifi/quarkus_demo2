@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: thomas-quarkus-demo-config
+data:
+  quarkus-demo-url: thomas-quarkus-db
+  test: chris
