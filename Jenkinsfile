@@ -18,8 +18,8 @@ pipeline {
     }
 
     tools {
-        maven 'maven_3.6.3'
-        jdk 'jdk_1.8.0'
+        maven 'maven_3.8.x'
+        jdk 'java11'
     }
 
     stages {
