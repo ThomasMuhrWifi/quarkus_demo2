@@ -4,4 +4,4 @@ metadata:
   name: thomas-quarkus-demo-config
 data:
   quarkus-demo-url: thomas-quarkus-db
-  test: chris
+  test: "chris"
