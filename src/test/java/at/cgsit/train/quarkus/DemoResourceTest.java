@@ -26,7 +26,7 @@ public class DemoResourceTest {
         throw new RuntimeException("");
     }
 
-
+    @Test
     public void testHelloEchoEndpoint() {
 
         String testParam = "CHRIS";
