@@ -39,6 +39,18 @@ pipeline {
                 sh 'mvn -B -DskipTests clean package'
             }
         }
+        stage('Build quarkus container image') {
+            steps {
+                echo "Build and Unit Test"
+                sh "mvn -B package -Dquarkus.container-image.build=true -DskipTests=true"
+            }
+        }
+        stage('Docker push quarkus container image') {
+            steps {
+                echo "Docker push quarkus container image"
+                sh "mvn -B package -Dquarkus.container-image.push=true -DskipTests=true"
+            }
+        }
     }
     post {
         failure {
