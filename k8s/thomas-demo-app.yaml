@@ -29,7 +29,7 @@ spec:
         - name: USER_PWD
           valueFrom:
             secretKeyRef:
-              name: quarkus-db-secret
+              name: thomas-quarkus-db-secret
               key: postgres-password
         - name: DB_URL
           valueFrom:
